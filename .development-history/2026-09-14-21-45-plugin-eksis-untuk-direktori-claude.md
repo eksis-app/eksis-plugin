@@ -31,14 +31,17 @@ sebagai plugin tanpa satu baris pun kode server berubah.
 
 - `claude plugin validate --strict`: lolos
 - Endpoint yang dirujuk diuji hidup di produksi hari ini: `tools/list` menjawab 13 tool
+- Diajukan 14 Sep 2026 lewat Console; dasbor pengiriman berbunyi "eksis - Dikirim dan menunggu tinjauan"
 
 ## Limitations
 
 - Plugin directory menjangkau Claude Code dan Cowork, bukan chat claude.ai. Pengguna claude.ai tetap
   memasang eksis sebagai custom connector
-- Belum diajukan: formulir Console menuntut login, dan BrowserOS neo berhenti merespons saat sign-in
+- Plugin directory tidak menjangkau chat claude.ai; itu tetap milik Connectors Directory yang berbayar
 
 ## Follow-up
 
-- Masuk Console sebagai admin@eksis.io, lalu ajukan `https://github.com/eksis-app/eksis-plugin` di
-  `platform.claude.com/plugins/submit`
+- Menunggu hasil tinjauan Anthropic; pembaruan repo terangkat otomatis setelah terbit, tanpa
+  pengajuan ulang
+- Identitas penerbit masih perorangan (organisasi Console berdiri di akun Google pemilik); pindahkan
+  ke PT Eksis Karya Digital kalau verifikasi bisnisnya sudah beres
