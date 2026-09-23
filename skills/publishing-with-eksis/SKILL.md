@@ -39,11 +39,17 @@ and say so rather than quietly truncating the user's words.
 
 ## Scheduling is the default, publishing now is not
 
-`create_post` with a scheduled time puts the post in the queue, and the user can
-still edit or delete it. `create_post` with `mode: now`, and `publish_post`,
-send it to the platform immediately, and **eksis cannot take that back**. Treat
-those two as one-way doors: confirm with the user before calling them, and never
-publish now because it seemed faster.
+`create_post` saves a draft unless `mode` says otherwise, and a draft does not
+go out even when it carries `scheduledAt`. To schedule, send `mode: "schedule"`
+with `scheduledAt` as ISO-8601 with an offset. `mode: "queue"` takes the next
+free slot in the channel queue instead. The user can still edit or delete a
+scheduled or queued post.
+
+`create_post` with `mode: "now"`, and `publish_post`, send the post to the
+platform immediately, and **eksis cannot take that back**. Treat those two as
+one-way doors: confirm with the user before calling them, and never publish now
+because it seemed faster. Publishing runs in the background, so call `get_post`
+afterwards and tell the user how each channel ended up.
 
 `delete_post` only removes posts that have not gone out yet.
 
@@ -51,7 +57,8 @@ publish now because it seemed faster.
 
 `upload_media_from_url` imports a file from a public URL into the workspace
 library, which is how you attach media you did not upload by hand. It does not
-change anything outside eksis.
+change anything outside eksis. Attach media by the ids from `list_media` or
+from the import itself: an id eksis does not know is refused, not skipped.
 
 ## Comments
 

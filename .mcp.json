@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "eksis": {
+      "type": "http",
       "url": "https://api.eksis.io/mcp"
     }
   }
