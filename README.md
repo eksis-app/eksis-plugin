@@ -1,7 +1,8 @@
 # eksis plugin for Claude
 
-Schedule, publish, and answer comments across twelve social networks from your
-[eksis](https://eksis.io) workspace, without leaving Claude.
+Schedule, approve, and publish posts, answer comments and direct messages, and
+read analytics across twelve social networks from your [eksis](https://eksis.io)
+workspace, without leaving Claude.
 
 The plugin bundles the eksis remote MCP connector with a skill that teaches
 Claude how each platform behaves, so it checks a channel's rules before drafting
@@ -10,14 +11,22 @@ rather than after a post fails.
 ## What it can do
 
 - Read the workspace: channels, connection health, plan, and quota
-- Read what each network allows, whether or not a channel is connected
-- Draft, schedule, replace, and delete posts
-- Publish immediately, on request
-- Import media from a public URL into the workspace library
-- Read and answer comments on published posts
+- Read what each network allows, whether or not a channel is connected, and look
+  up Pinterest boards and the TikTok creator options a post needs
+- Check a post against every channel's rules before saving it
+- Draft, schedule, reschedule, replace, and delete posts, and read the calendar
+- Manage the time slots of the posting queue
+- Approve posts that contributors wrote, or send them back with a note
+- Publish immediately, or retry the channels that failed, on request
+- Import media from a public URL, check a file's status, and delete files
+- Read, answer, hide, like, and delete comments, and mark them done
+- Read and answer direct messages (paid plans)
+- Read analytics (paid plans) and the recent posts on a channel
+- List the workspace's webhook endpoints. Creating or changing them stays in the
+  eksis app and the REST API, never in Claude.
 
-Thirteen tools in total. Seven only read; six create, change, or send, and Claude
-asks before it runs any of those.
+38 tools in total. 19 only read; 19 create, change, or send, and Claude asks
+before it runs any of those.
 
 ## Install
 
@@ -48,7 +57,7 @@ In short:
   request counts. eksis receives only the tool requests Claude makes, for example
   the caption it drafted for you, not the rest of your conversation.
 - **How it is used.** To run the service you asked for: scheduling, publishing,
-  reading comments. The contents of your posts, comments, and messages are not
+  reading comments and direct messages, and reporting analytics. The contents of your posts, comments, and messages are not
   used to train AI models.
 - **Third-party sharing.** What Claude reads travels to Anthropic and is covered
   by Anthropic's privacy policy. eksis also passes content to the social platform
