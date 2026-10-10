@@ -8,7 +8,7 @@
     "email": "admin@eksis.io",
     "url": "https://eksis.io"
   },
-  "homepage": "https://eksis.io/developers",
+  "homepage": "https://docs.eksis.io/en/mcp",
   "repository": "https://github.com/eksis-app/eksis-plugin",
   "license": "MIT",
   "keywords": ["social-media", "scheduling", "publishing", "marketing", "instagram", "linkedin", "tiktok", "youtube"]

@@ -64,7 +64,7 @@ In short:
 
 ## Support
 
-- Documentation: <https://eksis.io/developers>
+- Documentation: <https://docs.eksis.io/en/mcp>
 - Support: <https://eksis.io/support>
 - Email: admin@eksis.io
 
