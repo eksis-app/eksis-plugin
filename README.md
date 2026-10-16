@@ -1,12 +1,12 @@
-# eksis plugin for Claude
+# eksis plugin for Claude, Cursor, and Grok Bot
 
 Schedule, approve, and publish posts, answer comments and direct messages, and
 read analytics across twelve social networks from your [eksis](https://eksis.io)
-workspace, without leaving Claude.
+workspace, without leaving Claude, Cursor, or Grok Bot.
 
 The plugin bundles the eksis remote MCP connector with a skill that teaches
-Claude how each platform behaves, so it checks a channel's rules before drafting
-rather than after a post fails.
+the assistant how each platform behaves, so it checks a channel's rules before
+drafting rather than after a post fails.
 
 ## What it can do
 
@@ -23,20 +23,41 @@ rather than after a post fails.
 - Read and answer direct messages (paid plans)
 - Read analytics (paid plans) and the recent posts on a channel
 - List the workspace's webhook endpoints. Creating or changing them stays in the
-  eksis app and the REST API, never in Claude.
+  eksis app and the REST API, never in the assistant.
 
-38 tools in total. 19 only read; 19 create, change, or send, and Claude asks
-before it runs any of those.
+38 tools in total. 19 only read; 19 create, change, or send, and each of those
+is marked as a write tool. Claude and Cursor ask before they run one. In Grok
+Bot, add an **Ask first** rule for them under **Settings**, **General**,
+**Auto-review**.
 
 ## Install
+
+### Claude Code
 
 ```
 /plugin install eksis
 ```
 
-The first tool call opens the eksis consent screen in your browser. You sign in,
-pick **one workspace**, and choose whether Claude may write as well as read. The
-connection then appears on the API page inside that workspace and can be
+### Cursor and Grok Bot
+
+Both load this repository as a Cursor plugin: `.cursor-plugin/plugin.json`
+declares it, `mcp.json` adds the eksis server, and `skills/` carries the same
+skill. Grok Bot installs plugins from **Connect apps**, and an installed plugin
+is available to every Bot on the account.
+
+Without the plugin, Grok Bot can still add the server when you ask in chat:
+
+```text
+Add a custom MCP server called eksis at https://api.eksis.io/mcp
+```
+
+Steps for every supported client are at <https://docs.eksis.io/en/mcp>.
+
+### Signing in
+
+Connecting opens the eksis consent screen in your browser. You sign in, pick
+**one workspace**, and choose whether the assistant may write as well as read.
+The connection then appears on the API page inside that workspace and can be
 disconnected there at any time.
 
 ## What you need
@@ -54,13 +75,14 @@ In short:
 
 - **What is collected.** Your eksis account details, the social accounts you
   connect, the content you create in eksis, and operational records such as
-  request counts. eksis receives only the tool requests Claude makes, for example
+  request counts. eksis receives only the tool requests the assistant makes, for example
   the caption it drafted for you, not the rest of your conversation.
 - **How it is used.** To run the service you asked for: scheduling, publishing,
   reading comments and direct messages, and reporting analytics. The contents of your posts, comments, and messages are not
   used to train AI models.
-- **Third-party sharing.** What Claude reads travels to Anthropic and is covered
-  by Anthropic's privacy policy. eksis also passes content to the social platform
+- **Third-party sharing.** What the assistant reads travels to the company that
+  runs it, such as Anthropic for Claude, and is covered by that company's privacy
+  policy. eksis also passes content to the social platform
   you publish to, and uses named infrastructure providers listed in the policy.
   eksis does not sell personal data.
 - **Retention.** Content lives as long as the workspace does. Closing the account
