@@ -1,8 +1,9 @@
 # eksis plugin for Claude, Cursor, and Grok Bot
 
 Schedule, approve, and publish posts, answer comments and direct messages, run
-comment and DM automations, and read analytics across twelve social networks from your [eksis](https://eksis.io)
-workspace, without leaving Claude, Cursor, or Grok Bot.
+comment and DM automations, and read analytics on Instagram, TikTok, YouTube,
+LinkedIn, X, and more from your [eksis](https://eksis.io) workspace, without
+leaving Claude, Cursor, or Grok Bot.
 
 The plugin bundles the eksis remote MCP connector with a skill that teaches
 the assistant how each platform behaves, so it checks a channel's rules before

@@ -5,7 +5,8 @@ description: Use when scheduling, drafting, approving, or publishing social medi
 
 # Publishing with eksis
 
-eksis reaches twelve social networks through one workspace. The tools are the
+eksis reaches Instagram, Facebook, Threads, TikTok, YouTube, LinkedIn, X,
+Bluesky, Pinterest, Google Business Profile, and DEV through one workspace. The tools are the
 same API the eksis web app uses, so a post created here appears in the user's
 calendar and is published by the same worker.
 

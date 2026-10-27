@@ -1,7 +1,7 @@
 {
   "name": "eksis",
   "version": "1.2.0",
-  "description": "Schedule, approve, and publish posts, answer comments and direct messages, run comment and DM automations, and read analytics across twelve social networks from your eksis workspace.",
+  "description": "Schedule, approve, and publish posts, answer comments and direct messages, run comment and DM automations, and read analytics on Instagram, TikTok, YouTube, LinkedIn, X, and more from your eksis workspace.",
   "author": {
     "name": "PT Eksis Karya Digital",
     "email": "support@eksis.io"
