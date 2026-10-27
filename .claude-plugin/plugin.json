@@ -1,11 +1,11 @@
 {
   "name": "eksis",
   "displayName": "eksis",
-  "version": "1.1.0",
-  "description": "Schedule, approve, and publish posts, answer comments and direct messages, and read analytics across twelve social networks from your eksis workspace.",
+  "version": "1.2.0",
+  "description": "Schedule, approve, and publish posts, answer comments and direct messages, run comment and DM automations, and read analytics across twelve social networks from your eksis workspace.",
   "author": {
     "name": "PT Eksis Karya Digital",
-    "email": "admin@eksis.io",
+    "email": "support@eksis.io",
     "url": "https://eksis.io"
   },
   "homepage": "https://docs.eksis.io/en/mcp",

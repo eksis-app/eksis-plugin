@@ -1,7 +1,7 @@
 # eksis plugin for Claude, Cursor, and Grok Bot
 
-Schedule, approve, and publish posts, answer comments and direct messages, and
-read analytics across twelve social networks from your [eksis](https://eksis.io)
+Schedule, approve, and publish posts, answer comments and direct messages, run
+comment and DM automations, and read analytics across twelve social networks from your [eksis](https://eksis.io)
 workspace, without leaving Claude, Cursor, or Grok Bot.
 
 The plugin bundles the eksis remote MCP connector with a skill that teaches
@@ -15,17 +15,22 @@ drafting rather than after a post fails.
   up Pinterest boards and the TikTok creator options a post needs
 - Check a post against every channel's rules before saving it
 - Draft, schedule, reschedule, replace, and delete posts, and read the calendar
+- Label posts made with AI on the networks that ask for it, and invite
+  collaborators to Instagram posts
+- Read the team's saved snippets, and keep notes on the idea board
 - Manage the time slots of the posting queue
 - Approve posts that contributors wrote, or send them back with a note
 - Publish immediately, or retry the channels that failed, on request
 - Import media from a public URL, check a file's status, and delete files
 - Read, answer, hide, like, and delete comments, and mark them done
 - Read and answer direct messages (paid plans)
-- Read analytics (paid plans) and the recent posts on a channel
+- List comment and DM automations, and switch them on or off
+- Read analytics for any period, per channel and per post type, with Instagram
+  audience insights (paid plans), and the recent posts on a channel
 - List the workspace's webhook endpoints. Creating or changing them stays in the
   eksis app and the REST API, never in the assistant.
 
-38 tools in total. 19 only read; 19 create, change, or send, and each of those
+48 tools in total. 24 only read; 24 create, change, or send, and each of those
 is marked as a write tool. Claude and Cursor ask before they run one. In Grok
 Bot, add an **Ask first** rule for them under **Settings**, **General**,
 **Auto-review**.
@@ -91,13 +96,13 @@ In short:
 - **About this connection.** eksis stores which assistant is connected, the
   workspace and permissions granted, who granted them, when it was last used, and
   how many requests it has made.
-- **Contact.** admin@eksis.io
+- **Contact.** support@eksis.io
 
 ## Support
 
 - Documentation: <https://docs.eksis.io/en/mcp>
 - Support: <https://eksis.io/support>
-- Email: admin@eksis.io
+- Email: support@eksis.io
 
 ## License
 
