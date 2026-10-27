@@ -11,5 +11,6 @@
   "homepage": "https://docs.eksis.io/en/mcp",
   "repository": "https://github.com/eksis-app/eksis-plugin",
   "license": "MIT",
+  "privacyPolicyUrl": "https://eksis.io/privacy",
   "keywords": ["social-media", "scheduling", "publishing", "marketing", "instagram", "linkedin", "tiktok", "youtube"]
 }
