@@ -22,7 +22,8 @@ drafting rather than after a post fails.
 - Manage the time slots of the posting queue
 - Approve posts that contributors wrote, or send them back with a note
 - Publish immediately, or retry the channels that failed, on request
-- Import media from a public URL, check a file's status, and delete files
+- Import media from a public URL, upload a file from your computer when the
+  assistant can run commands, check a file's status, and delete files
 - Read, answer, hide, like, and delete comments, and mark them done
 - Read and answer direct messages (paid plans)
 - List comment and DM automations, and switch them on or off
@@ -31,7 +32,7 @@ drafting rather than after a post fails.
 - List the workspace's webhook endpoints. Creating or changing them stays in the
   eksis app and the REST API, never in the assistant.
 
-48 tools in total. 24 only read; 24 create, change, or send, and each of those
+51 tools in total. 24 only read; 27 create, change, or send, and each of those
 is marked as a write tool. Claude and Cursor ask before they run one. In Grok
 Bot, add an **Ask first** rule for them under **Settings**, **General**,
 **Auto-review**.

@@ -34,6 +34,8 @@ Platforms differ in ways that break a post silently if you ignore them:
 - Caption limits differ by an order of magnitude between networks. Read the
   limit from the channel rather than assuming.
 - Not every platform exposes comments, DMs, or metrics.
+- A post lists each channel once in `targets`. A feed post and a story on the
+  same Instagram account are two posts, and a repeated channel is refused.
 
 When one caption is going to several channels, check the shortest limit first,
 and say so rather than quietly truncating the user's words.
@@ -104,8 +106,17 @@ post before approving it, and never approve one only to get it published.
 
 `upload_media_from_url` imports a file from a public URL into the workspace
 library, which is how you attach media you did not upload by hand. It does not
-change anything outside eksis. Attach media by the ids from `list_media` or
-from the import itself: an id eksis does not know is refused, not skipped.
+change anything outside eksis.
+
+For a file on the user's computer, when you can run commands, use
+`create_media_upload` with the file name, type, and exact size in bytes. It
+returns an `uploadUrl` and a ready `curl` line: send the file with that PUT
+request within 15 minutes, then call `complete_media_upload` with the
+`mediaId`. eksis reads the stored file to confirm its type, size, and image
+dimensions, and answers `media.upload_missing` if the file has not arrived.
+
+Attach media by the ids from `list_media` or from an import or upload: an id
+eksis does not know is refused, not skipped.
 `get_media` reads one file, including whether it is ready yet. `delete_media`
 removes a file, and is refused while a post that has not gone out still uses it.
 
