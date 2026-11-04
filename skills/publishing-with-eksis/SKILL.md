@@ -48,6 +48,18 @@ TikTok post needs a `privacy` level, and a Pinterest pin needs a `boardId`. Get
 the board ids from `list_pinterest_boards`, and the privacy levels and
 interaction switches the creator allows from `get_tiktok_creator_info`. Let the
 user pick the TikTok privacy level; never choose it for them.
+`get_platform_capabilities` lists the required keys of every network as
+`requiredSettings`.
+
+A DEV Community post is an article: the caption is its Markdown body, and it
+needs a `title`. It also takes a `description` (the summary in link previews and
+search results), up to four `tags`, a `series`, a `canonicalUrl`, and
+`publishAsDraft`. DEV creates a new tag or series for any name it has not seen,
+typos included, so take the names from `get_devto_options`, which lists the tags
+the account follows, popular tags, and the series this channel used before.
+Leave out front matter (a block between `---` lines at the top of the body):
+DEV reads it over the settings, and a draft whose front matter says
+`published: true` is refused.
 
 When the caption or media was made with AI, set the AI label of each platform
 that has one: `isAiGenerated` on Instagram, `madeWithAi` on X, `aiModified` on
