@@ -51,6 +51,14 @@ user pick the TikTok privacy level; never choose it for them.
 `get_platform_capabilities` lists the required keys of every network as
 `requiredSettings`.
 
+A song on a TikTok post comes from `search_tiktok_music`: without a query it
+returns the songs popular now, and with a title or artist it searches the
+popular list first and then all of TikTok. Pass one track unchanged as
+`settings.music`, with `volume`, `originalVolume` (0 to 100), or `startMs` if
+the user asks. A video with a song is always public, so say that before adding
+one. When the result's `status` is not `connected`, the user has to connect
+TikTok for Business once from the Music row in the eksis composer.
+
 A DEV Community post is an article: the caption is its Markdown body, and it
 needs a `title`. It also takes a `description` (the summary in link previews and
 search results), up to four `tags`, a `series`, a `canonicalUrl`, and
