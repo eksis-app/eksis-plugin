@@ -26,13 +26,13 @@ drafting rather than after a post fails.
   assistant can run commands, check a file's status, and delete files
 - Read, answer, hide, like, and delete comments, and mark them done
 - Read and answer direct messages (paid plans)
-- List comment and DM automations, and switch them on or off
+- Create, read, and change comment and DM automations, and switch them on or off
 - Read analytics for any period, per channel and per post type, with Instagram
   audience insights (paid plans), and the recent posts on a channel
 - List the workspace's webhook endpoints. Creating or changing them stays in the
   eksis app and the REST API, never in the assistant.
 
-51 tools in total. 24 only read; 27 create, change, or send, and each of those
+58 tools in total. 28 only read; 30 create, change, or send, and each of those
 is marked as a write tool. Claude and Cursor ask before they run one. In Grok
 Bot, add an **Ask first** rule for them under **Settings**, **General**,
 **Auto-review**.
