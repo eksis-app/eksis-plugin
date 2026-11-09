@@ -14,6 +14,7 @@ drafting rather than after a post fails.
 - Read the workspace: channels, connection health, plan, and quota
 - Read what each network allows, whether or not a channel is connected, and look
   up Pinterest boards and the TikTok creator options a post needs
+- Find a song for a TikTok post, from the popular list or across all of TikTok
 - Check a post against every channel's rules before saving it
 - Draft, schedule, reschedule, replace, and delete posts, and read the calendar
 - Label posts made with AI on the networks that ask for it, and invite
@@ -32,7 +33,7 @@ drafting rather than after a post fails.
 - List the workspace's webhook endpoints. Creating or changing them stays in the
   eksis app and the REST API, never in the assistant.
 
-58 tools in total. 28 only read; 30 create, change, or send, and each of those
+59 tools in total. 29 only read; 30 create, change, or send, and each of those
 is marked as a write tool. Claude and Cursor ask before they run one. In Grok
 Bot, add an **Ask first** rule for them under **Settings**, **General**,
 **Auto-review**.
