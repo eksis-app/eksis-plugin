@@ -159,6 +159,16 @@ idea stays on the board until the user removes it.
 its thread, and `reply_to_comment` answers one. A reply is public and immediate.
 Draft it, show it to the user, then send.
 
+To find comments that still need an answer, list them with `status: open`; a
+reply through eksis or one written in the platform app marks a comment done.
+Add `since` to keep only recent ones. The thread from `get_comment` is the whole
+conversation, so a reply sent to a nested comment shows there too.
+
+Give each reply its own `idempotencyKey`. A Threads reply can take several
+seconds, and if the call times out, call it again with the same key instead of
+checking the thread: you get the first reply back with `replayed: true`, and
+nothing is posted twice.
+
 `set_comment_visibility` hides or shows a comment, `like_comment` likes it, and
 `set_comment_status` marks it done or open in the eksis inbox. `delete_comment`
 removes it from the platform and cannot be undone, so confirm first. Which of
