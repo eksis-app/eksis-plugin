@@ -135,6 +135,14 @@ request within 15 minutes, then call `complete_media_upload` with the
 `mediaId`. eksis reads the stored file to confirm its type, size, and image
 dimensions, and answers `media.upload_missing` if the file has not arrived.
 
+The same applies to a file the user attached to the chat, if you can read it.
+In a sandbox, such as Claude on claude.ai or a cloud agent, the network often
+refuses the storage host: a 403 or a proxy error on the PUT comes from the
+sandbox, not from eksis, and retrying will not help. Follow the `next` field of
+the `create_media_upload` result instead: it says what to do when the upload is
+blocked, such as asking the user for a public link to the file and using
+`upload_media_from_url`. `upload_media_from_chat` works in ChatGPT only.
+
 Attach media by the ids from `list_media` or from an import or upload: an id
 eksis does not know is refused, not skipped.
 `get_media` reads one file, including whether it is ready yet. `delete_media`
