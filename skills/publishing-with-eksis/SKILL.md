@@ -79,6 +79,12 @@ On Instagram, `collaborators` invites up to three other accounts to co-author a
 feed post, carousel, or Reel. Pass their usernames without the @. Each person
 accepts the invite in Instagram before the post shows on their profile.
 
+A Threads post holds 500 characters. For longer text, keep the opening in the
+caption and put the rest in `settings.thread`: up to 24 follow-up posts, each
+`{ "text": "...", "mediaIds": [] }`, that each reply to the one before. Split at
+sentence ends, not mid-word. A `firstComment` goes out as the first follow-up
+post, so do not send both for the same words.
+
 eksis refuses a known setting with a wrong value and names the field. A setting
 it does not know comes back as a warning and is ignored. The full list per
 platform is at <https://docs.eksis.io/en/api/platform-specs>.
@@ -109,7 +115,10 @@ platform immediately, and **eksis cannot take that back**. Treat those two as
 one-way doors: confirm with the user before calling them, and never publish now
 because it seemed faster. Publishing runs in the background, so call `get_post`
 afterwards and tell the user how each channel ended up. If a channel failed,
-`retry_post` sends the failed channels again once the cause is fixed.
+`retry_post` sends the failed channels again once the cause is fixed. A Threads
+thread that stopped partway shows `thread.stopped` on its target in `get_post`;
+`retry_post` continues it from the post that did not go out, without posting the
+rest again.
 
 `delete_post` only removes posts that have not gone out yet. A post that is
 being published right now cannot be changed or deleted until it finishes.
