@@ -1,6 +1,6 @@
 ---
 name: publishing-with-eksis
-description: Use when scheduling, drafting, approving, or publishing social media posts through eksis, answering or moderating comments and direct messages on connected channels, creating, changing, or switching comment and DM automations on or off, or reading analytics - covers picking channels, per-platform rules and settings including AI-content labels and Instagram collaborators, saved snippets, the idea board, approvals, the queue, and the difference between scheduling and publishing now
+description: Use when scheduling, drafting, approving, or publishing social media posts through eksis, answering or moderating comments and direct messages on connected channels, creating, changing, or switching comment and DM automations on or off, setting up or testing AI agents that answer DMs, or reading analytics - covers picking channels, per-platform rules and settings including AI-content labels and Instagram collaborators, saved snippets, the idea board, approvals, the queue, and the difference between scheduling and publishing now
 ---
 
 # Publishing with eksis
@@ -224,6 +224,29 @@ comment or DM, including right after a change.
 eksis answers comments and sends DMs by itself in the workspace's name, so
 confirm with the user before switching one on. Pausing is always safe. When one
 cannot be switched on, tell the user what blocks it.
+
+## AI agents
+
+An AI agent answers DMs and story replies across a whole Instagram or Facebook
+channel from what it is taught. Comments stay with automations, whose AI
+replies can be written by an agent. `list_ai_agents` and `get_ai_agent` read
+agents, `create_ai_agent` saves one as a draft, empty or from the `sales`,
+`support`, or `creator` template, and `update_ai_agent` changes one; send only
+the fields that change.
+
+An agent answers only from the knowledge attached to it as `knowledgeBaseIds`.
+Build that first: `create_ai_knowledge_base`, then `add_ai_knowledge_source`
+for each website, text, FAQ, or file. A saved personality from
+`list_ai_personalities` or `create_ai_personality`, set as `personalityId`,
+decides how it sounds.
+
+Before switching an agent on with `set_ai_agent_status`, run `test_ai_agent`
+with a message the user expects and show them the reply; each test uses one AI
+credit and sends nothing. Once on, the agent writes to customers in the
+workspace's name, so confirm its channels, instructions, and `sendMode` with
+the user first. `list_agent_attention` lists replies waiting for approval,
+hand-offs, and delivery problems, and `resolve_agent_attention` acts on one.
+Sending an approved reply cannot be taken back.
 
 ## Analytics
 
