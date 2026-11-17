@@ -225,6 +225,13 @@ eksis answers comments and sends DMs by itself in the workspace's name, so
 confirm with the user before switching one on. Pausing is always safe. When one
 cannot be switched on, tell the user what blocks it.
 
+After `create_post`, the result may carry `next` with an offer of a comment
+automation for the new post. Make that offer once, in the user's language, and
+when the caption asks people to comment a word, suggest that word as the
+keyword. Pass the post id as `scheduledPostIds` to `create_automation`; the
+automation starts watching once the post is live. Create nothing until the user
+agrees, and do not offer again after they decline.
+
 ## AI agents
 
 An AI agent answers DMs and story replies across a whole Instagram or Facebook
