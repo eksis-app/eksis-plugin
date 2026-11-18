@@ -1,9 +1,9 @@
-# eksis plugin for Claude, Cursor, and Grok Bot
+# eksis plugin for Claude, Cursor, Grok Bot, and Hermes Agent
 
 Schedule, approve, and publish posts, answer comments and direct messages, run
 comment and DM automations, and read analytics on Instagram, TikTok, YouTube,
 LinkedIn, X, and more from your [eksis](https://eksis.io) workspace, without
-leaving Claude, Cursor, or Grok Bot.
+leaving Claude, Cursor, Grok Bot, or Hermes Agent.
 
 The plugin bundles the eksis remote MCP connector with a skill that teaches
 the assistant how each platform behaves, so it checks a channel's rules before
@@ -34,7 +34,8 @@ drafting rather than after a post fails.
   eksis app and the REST API, never in the assistant.
 
 59 tools in total. 29 only read; 30 create, change, or send, and each of those
-is marked as a write tool. Claude and Cursor ask before they run one. In Grok
+is marked as a write tool. Claude and Cursor ask before they run one, and so
+does Hermes Agent, because the package marks the eksis server untrusted. In Grok
 Bot, add an **Ask first** rule for them under **Settings**, **General**,
 **Auto-review**.
 
@@ -58,6 +59,60 @@ Without the plugin, Grok Bot can still add the server when you ask in chat:
 ```text
 Add a custom MCP server called eksis at https://api.eksis.io/mcp
 ```
+
+### Hermes Agent
+
+The repository root is also a portable Agent Plugins package: `plugin.json`,
+`mcp.json`, and the same `skills/` folder. Hermes installs it switched off, so
+enable it after installing:
+
+```bash
+hermes plugins install eksis
+hermes plugins enable eksis
+```
+
+`hermes plugins install eksis` takes the pinned release from the Hermes plugin
+catalog; `hermes plugins install eksis-app/eksis-plugin` takes this repository
+directly.
+
+The package's `mcp.json` cannot run the sign-in on its own, so add the server to
+`~/.hermes/config.yaml` with OAuth. Keep `trust: untrusted`: an entry in
+`config.yaml` replaces the package's, including its trust setting.
+
+```yaml
+mcp_servers:
+  eksis:
+    url: https://api.eksis.io/mcp
+    auth: oauth
+    trust: untrusted
+```
+
+Then sign in and check the connection:
+
+```bash
+hermes mcp login eksis
+hermes mcp test eksis
+```
+
+Start a new session, or run `/reload-mcp`, to load the tools. To use an API key
+instead of OAuth, follow <https://docs.eksis.io/en/mcp/clients/hermes>.
+
+What the package does once it is enabled:
+
+- It has no local code. It adds a skill and one remote MCP server,
+  `https://api.eksis.io/mcp`, and Hermes stores and refreshes the OAuth tokens.
+- Every tool call goes to api.eksis.io with what the call carries, such as a
+  caption or a reply. What the tools return (channels, posts, comments, direct
+  messages, analytics) reaches your model provider through the session.
+- Write tools publish to the social accounts connected in the workspace, send
+  comment replies and direct messages, and change automations and AI agents.
+  Hermes asks before each one; read-only tools run without asking.
+- To upload a file from your computer, the skill has the assistant send it with
+  the `curl` command that `create_media_upload` returns, through the terminal
+  tool. That is the only shell command it asks for.
+- The tool list comes from the eksis server at run time, so a pinned commit of
+  this package does not fix it.
+- No background process, no telemetry, no self-update.
 
 Steps for every supported client are at <https://docs.eksis.io/en/mcp>.
 
