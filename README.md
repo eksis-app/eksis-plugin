@@ -62,6 +62,9 @@ Add a custom MCP server called eksis at https://api.eksis.io/mcp
 
 ### Hermes Agent
 
+eksis is listed in the Hermes Marketplace:
+<https://hermes-agent.nousresearch.com/marketplace/eksis>.
+
 The repository root is also a portable Agent Plugins package: `plugin.json`,
 `mcp.json`, and the same `skills/` folder. Hermes installs it switched off, so
 enable it after installing:
