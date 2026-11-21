@@ -76,11 +76,16 @@ hermes plugins enable eksis
 
 `hermes plugins install eksis` takes the pinned release from the Hermes plugin
 catalog; `hermes plugins install eksis-app/eksis-plugin` takes this repository
-directly.
+directly. The catalog entry ships with Hermes 0.23.3: an older Hermes answers
+that eksis is not in the catalog, so run `hermes update` first or install from
+this repository.
 
 The package's `mcp.json` cannot run the sign-in on its own, so add the server to
 `~/.hermes/config.yaml` with OAuth. Keep `trust: untrusted`: an entry in
-`config.yaml` replaces the package's, including its trust setting.
+`config.yaml` replaces the package's, including its trust setting, and an entry
+without `trust` runs every tool without asking. If `hermes mcp add` already
+wrote an `eksis` entry, run `hermes config set mcp_servers.eksis.trust untrusted`
+instead of adding a second one.
 
 ```yaml
 mcp_servers:
